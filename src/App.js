@@ -1,13 +1,10 @@
 import './App.css';
 import React, {  useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from './logo';
 import { Button, Col ,Row} from 'react-bootstrap';
 
-import Container from 'react-bootstrap/Container';
-import Left from './images/left.png';
-import Right from './images/right.png';
-import Vs from './images/vs.png';
+import Cup from './images/cup.png';
+import Title from './images/title.png';
 import kp from './keypair.json';
 import admin_kp from './Adminkeypair.json';
 
@@ -285,63 +282,159 @@ function App() {
 
   return (
     <div style={{ backgroundImage: "url(/background.png)" }}>
-      <div className='nav'>
-        <Logo/>
-        <div className='tab-container'>
-            <div className='tab '><span>Home</span></div>
-            <div className='tab activeTab'>Roadmap</div>
-            <div className='tab'>Arena</div>
-        </div>
+      <div className="nav">
+        <span>Degen Coin Finder</span>
         {!walletAddress && renderNotConnectedContainer()}
         {walletAddress && renderConnectedContainer()}
       </div>
-      <div className='lower-content'>
+      <div className="lower-content">
         {walletAddress && renderwallet()}
-        <div className='game'>
-          <h1 className='title'>
+        <div className="game">
+          <h1 className="title">
             <Row>
-              <Col md={4}><hr/></Col>
-              <Col md={4}><span>Zankoku Arena</span></Col>
-              <Col md={4}><hr/></Col>
+              <Col md={12}>
+                <img
+                  id="title"
+                  src={Title}
+                  alt="title"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
+                <hr />
+              </Col>
+              <Col md={4}>
+                <span>Zankoku Arena</span>
+              </Col>
+              <Col md={4}>
+                <hr />
+              </Col>
             </Row>
           </h1>
-          <div className='content'>
-            <div className='content-top'>
+          <div className="content">
+            <div className="content-top">
               <Row>
                 <Col md={4}>
-                  {pred===0?<img className='active' id="left" src={Left} alt="left" height="200" onClick={() => imageClick(0)}/>:<img src={Left} id="left" alt="left" height="200" onClick={() => imageClick(0)}/>}
-                  </Col>
-                <Col md={4}><img className="vs" src={Vs} alt="vs" height="100" /></Col>
-                <Col md={4}>{pred===1?<img className='active' id="right" src={Right} alt="Right" height="200" onClick={() => imageClick(1)}/>:<img src={Right} id="right" alt="Right" height="200" onClick={() => imageClick(1)}/>}
+                  {pred === 0 ? (
+                    <img
+                      className="active"
+                      id="left"
+                      src={Cup}
+                      alt="left"
+                      height="200"
+                      onClick={() => imageClick(0)}
+                    />
+                  ) : (
+                    <img
+                      src={Cup}
+                      id="left"
+                      alt="left"
+                      height="200"
+                      onClick={() => imageClick(0)}
+                    />
+                  )}
+                </Col>
+                <Col md={4}>
+                {pred === 1 ? (
+                    <img
+                      className="active"
+                      id="center"
+                      src={Cup}
+                      alt="center"
+                      height="200"
+                      onClick={() => imageClick(1)}
+                    />
+                  ) : (
+                    <img
+                      src={Cup}
+                      id="center"
+                      alt="center"
+                      height="200"
+                      onClick={() => imageClick(1)}
+                    />
+                  )}
+                </Col>
+                <Col md={4}>
+                  {pred === 2 ? (
+                    <img
+                      className="active"
+                      id="right"
+                      src={Cup}
+                      alt="Right"
+                      height="200"
+                      onClick={() => imageClick(2)}
+                    />
+                  ) : (
+                    <img
+                      src={Cup}
+                      id="right"
+                      alt="Right"
+                      height="200"
+                      onClick={() => imageClick(2)}
+                    />
+                  )}
                 </Col>
               </Row>
             </div>
-            <div className='content-bottom'>
+            <div className="content-bottom">
               <Row>
                 <Col md={4}>
-                  <Button  variant="outline-success" onClick={() => setSelectedStakeBalance(0.05)} >0.05 SOL</Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setSelectedStakeBalance(0.05)}
+                  >
+                    0.05 SOL
+                  </Button>
                 </Col>
                 <Col md={4}>
-                  <Button variant="outline-success" onClick={() => setSelectedStakeBalance(0.10)} >0.10 SOL</Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setSelectedStakeBalance(0.1)}
+                  >
+                    0.10 SOL
+                  </Button>
                 </Col>
                 <Col md={4}>
-                  <Button variant="outline-success" onClick={() => setSelectedStakeBalance(0.25)} >0.25 SOL</Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setSelectedStakeBalance(0.25)}
+                  >
+                    0.25 SOL
+                  </Button>
                 </Col>
               </Row>
               <br></br>
               <Row>
                 <Col md={4}>
-                  <Button variant="outline-success" onClick={() => setSelectedStakeBalance(0.50)} >0.50 SOL</Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setSelectedStakeBalance(0.5)}
+                  >
+                    0.50 SOL
+                  </Button>
                 </Col>
                 <Col md={4}>
-                  <Button variant="outline-success" onClick={() => setSelectedStakeBalance(1)} >1.00SOL</Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setSelectedStakeBalance(1)}
+                  >
+                    1.00SOL
+                  </Button>
                 </Col>
                 <Col md={4}>
-                  <Button variant="outline-success" onClick={() => setSelectedStakeBalance(2)} >2.00SOL</Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setSelectedStakeBalance(2)}
+                  >
+                    2.00SOL
+                  </Button>
                 </Col>
               </Row>
-              <hr/>
-              <Button variant="outline-info" onClick={() => placeBet()} >Start Battle</Button>  
+              <hr />
+              <Button variant="outline-info" onClick={() => placeBet()}>
+                Find the Coin!
+              </Button>
             </div>
           </div>
         </div>
