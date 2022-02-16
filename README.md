@@ -1,4 +1,22 @@
-https://zankokuarena.io/   This is live site
+# NEW INSTRUCTIONS
+
+Setup your wallet with phantom
+Place the path to the json wallet in myepicproject/Anchor.toml
+execute in terminal:
+
+```
+./install.sh
+
+# and after
+
+./deploy_devnet.sh
+
+```
+
+The app will run
+
+https://zankokuarena.io/ This is live site
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -30,29 +48,31 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# How to deploy the smart contract 
+# How to deploy the smart contract
 
 ## install the solana env
- 1. Installing Rust
-    
+
+1.  Installing Rust
+
     $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
- 2. Installing Solana
-   
+2.  Installing Solana
+
     sh -c "$(curl -sSfL https://release.solana.com/v1.9.4/install)"
 
- 3.  Install Node, NPM, and Mocha
+3.  Install Node, NPM, and Mocha
+
 
     npm install -g mocha
 
- 4. Install Anchor
+4.  Install Anchor
 
     To install Anchor, go ahead an run:
 
         cargo install --git https://github.com/project-serum/anchor anchor-cli --locked
 
- 5. Deploy the program to the devnet
-   
+5.  Deploy the program to the devnet
+
     First, switch to devnet:
 
         solana config set --url devnet
@@ -82,7 +102,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
         solana address -k target/deploy/myepicproject-keypair.json
 
-    This will output your program id, copy it. 
+    This will output your program id, copy it.
     Now, go to lib.rs. You'll see this id at the top.
 
         declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
@@ -93,7 +113,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
     Now, go to Anchor.toml and under [programs.devnet] you'll see something like myepicproject = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS". Go ahead and change this id to the same id output when you run solana address -k target/deploy/myepicproject-keypair.json.
 
-
     Finally, once you do all this we need to run the build command again:
 
         anchor build
@@ -102,6 +121,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
         anchor deploy
 
-
 3ApnWu45r8knFMJ1fT1htxqSMTEG5Jc9Zf14nHHAG3tG
-    
