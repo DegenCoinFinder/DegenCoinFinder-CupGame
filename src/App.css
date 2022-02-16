@@ -215,6 +215,11 @@ body {
   border: 0.2em solid red;
   border-radius: 10px;
 }
+#center:hover {
+  opacity: 0.8;
+  border: 0.2em solid red;
+  border-radius: 10px;
+}
 #right:hover {
   opacity: 0.8;
   border: 0.2em solid red;

@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 use anchor_lang::Account;
 
 
-declare_id!("3ApnWu45r8knFMJ1fT1htxqSMTEG5Jc9Zf14nHHAG3tG");
+declare_id!("DWJoeHYV3uGGmWbEBmgzmiZbBrjbVNPBcMBYprehjyWo");
 
 #[program]
 pub mod myepicproject {

@@ -27,7 +27,7 @@ const adminAccount = web3.Keypair.fromSecretKey(admin_secret);
 window.Buffer = window.Buffer || require('buffer').Buffer;
 
 // Get our program's id from the IDL file.
-const programID = new PublicKey(idl.metadata.address);
+const programID = new PublicKey("DWJoeHYV3uGGmWbEBmgzmiZbBrjbVNPBcMBYprehjyWo");
 
 // Set our network to devnet.
 const network = clusterApiUrl('devnet');
@@ -139,14 +139,9 @@ function App() {
     
 
     const min = 0;
-    const max = 1;
-    let rand = min + Math.random() * (max - min);
+    const max = 2;
+    let rand = Math.floor(Math.random() * (max - min)) + min;
 
-    if (rand<=0.5){
-        rand = 0;
-    } else {
-        rand = 1;
-    }
     // generating the random number and sending to the program
     let compareBet = await program.rpc.compareBet(rand, {
         accounts: {
@@ -298,17 +293,6 @@ function App() {
                   src={Title}
                   alt="title"
                 />
-              </Col>
-            </Row>
-            <Row>
-              <Col md={4}>
-                <hr />
-              </Col>
-              <Col md={4}>
-                <span>Zankoku Arena</span>
-              </Col>
-              <Col md={4}>
-                <hr />
               </Col>
             </Row>
           </h1>
